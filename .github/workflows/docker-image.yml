@@ -22,5 +22,5 @@ jobs:
         password: "Hello0616"
     - name: Build and push image to ACR  
       run: |
-        docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github .
+        docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github .
         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github
