@@ -17,7 +17,7 @@ jobs:
     - name: Login to ACR EE instance with token
       uses: aliyun/acr-login@v1
       with:
-       login-server:: "https://registry.cn-hangzhou.aliyuncs.com"
+       login-server: "https://registry.cn-hangzhou.aliyuncs.com"
        username: "jing.ljljlj"
        password: "Hello0616"
 
