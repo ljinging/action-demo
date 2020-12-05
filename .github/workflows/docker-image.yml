@@ -19,12 +19,10 @@ jobs:
     - name: Login to ACR EE instance with token
       uses: aliyun/acr-login@v1
       with:
-        login-server: "https://www-registry.cn-hangzhou.cr.aliyuncs.com"
         region-id: "cn-hangzhou"
         access-key-id: "LTAI4GJLoVRgVKJscWw9ZraM"
         access-key-secret: "lwiofS7v3lPSTQeZ2lhBFSvOaNWTpg"
-        instance-id: "cri-skecg851lg5r8brg"
     - name: Build and push image to ACR EE instance
       run: |
-        docker build -t www-registry.cn-hangzhou.cr.aliyuncs.com/abc/repo:github .
-        docker push www-registry.cn-hangzhou.cr.aliyuncs.com/abc/repo:github
+        docker build -t registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github .
+        docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github
