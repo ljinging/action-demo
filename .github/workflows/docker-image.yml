@@ -18,8 +18,8 @@ jobs:
       uses: aliyun/acr-login@v1
       with:
        login-server:: "https://registry.cn-hangzhou.aliyuncs.com"
-        username: "jing.ljljlj"
-        password: "Hello0616"
+       username: "jing.ljljlj"
+       password: "Hello0616"
 
     - name: Build and push image to ACR  
       run: |
