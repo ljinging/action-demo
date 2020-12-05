@@ -25,15 +25,7 @@ jobs:
       run: |
         docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2 .
         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2
-        
-#     - name: Scan image in ACR
-#       uses: aliyun/acr-scan@v1
-#       with:
-#         region-id: "cn-hangzhou"
-#         access-key-id: "LTAI4FfHMnEj829uxy91aaFV"
-#         access-key-secret: "96rzqxOoI7RzThJguUg28O4AapHEOf"
-#         repository: "registry.cn-hangzhou.aliyuncs.com/ljing123/repo"
-#         tag: github2        
+              
     - name: Build and push image to ACR  
     - uses: aliyun/ack-set-context@v1
       with:
