@@ -40,3 +40,7 @@ jobs:
         access-key-id: 'LTAI4FfHMnEj829uxy91aaFV'
         access-key-secret: '96rzqxOoI7RzThJguUg28O4AapHEOf'
         cluster-id: 'cf0109eb4648c407dade22da5367d53a6'
+    
+    - name: List pod
+      run: |
+        kubectl get pods -A
