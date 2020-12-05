@@ -26,7 +26,7 @@ jobs:
 #         docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2 .
 #         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2
               
-    - uses: aliyun/ack-set-context@v1
+    - uses: actions/checkout@v2
     - name: Set K8s context
       uses: aliyun/ack-set-context@v1
       with:
