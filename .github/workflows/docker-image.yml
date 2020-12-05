@@ -26,8 +26,8 @@ jobs:
         docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2 .
         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2
               
-    - name: Build and push image to ACR  
     - uses: aliyun/ack-set-context@v1
+    - name: Build and push image to ACR  
       with:
         access-key-id: 'LTAI4FfHMnEj829uxy91aaFV'
         access-key-secret: '96rzqxOoI7RzThJguUg28O4AapHEOf'
