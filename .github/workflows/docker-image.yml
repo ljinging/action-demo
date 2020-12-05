@@ -13,26 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Login to ACR EE instance with token
-      uses: aliyun/acr-login@v1
-      with:
-       login-server: "https://registry.cn-hangzhou.aliyuncs.com"
-       username: "jing.ljljlj"
-       password: "Hello0616"
+#     - uses: actions/checkout@v2
+#     - name: Login to ACR EE instance with token
+#       uses: aliyun/acr-login@v1
+#       with:
+#        login-server: "https://registry.cn-hangzhou.aliyuncs.com"
+#        username: "jing.ljljlj"
+#        password: "Hello0616"
 
-    - name: Build and push image to ACR  
-      run: |
-        docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2 .
-        docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2
+#     - name: Build and push image to ACR  
+#       run: |
+#         docker build --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2 .
+#         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github2
               
     - uses: aliyun/ack-set-context@v1
     - name: Set K8s context
       uses: aliyun/ack-set-context@v1
       with:
-        access-key-id: 'LTAI4FfHMnEj829uxy91aaFV'
-        access-key-secret: '96rzqxOoI7RzThJguUg28O4AapHEOf'
-        cluster-id: 'cf0109eb4648c407dade22da5367d53a6'
+        access-key-id: "LTAI4FfHMnEj829uxy91aaFV"
+        access-key-secret: "96rzqxOoI7RzThJguUg28O4AapHEOf"
+        cluster-id: "cf0109eb4648c407dade22da5367d53a6"
     
     - name: List pod
       run: |
