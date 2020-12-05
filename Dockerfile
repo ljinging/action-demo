@@ -1,1 +1,1 @@
-from busybox
+from busybox:latest
