@@ -19,7 +19,7 @@ jobs:
       with:
         region-id: "registry.cn-hangzhou.aliyuncs.com"
         username: "jing.ljljlj"
-        password: "Hello0616"
+        password: "Hello"
 
     - name: Build and push image to ACR  
       run: |
