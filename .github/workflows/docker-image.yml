@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Login to ACR EE instance with token
       uses: aliyun/acr-login@v1
       with:
@@ -24,5 +22,5 @@ jobs:
         password: "Hello0616"
     - name: Build and push image to ACR  
       run: |
-        docker build -t registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github .
+        docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github .
         docker push registry.cn-hangzhou.aliyuncs.com/ljing123/repo:github
