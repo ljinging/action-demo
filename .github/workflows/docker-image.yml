@@ -36,4 +36,6 @@ jobs:
     
     - name: List pod
       run: |
+        kubectl set image deployment/nginx-deployment nginx=nginx:1.11
         kubectl get pods -A
+  
