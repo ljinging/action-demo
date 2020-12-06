@@ -75,6 +75,7 @@ jobs:
 #       run: |
 #         kubectl set image deployment/nginx-deployment nginx=nginx:1.11
 #         kubectl get pods -A
+    - uses: actions/checkout@v2
     - name: Login to ACR EE instance with temp token
       uses: aliyun/acr-login@v1
       with:
@@ -83,6 +84,7 @@ jobs:
         access-key-id: "${{ secrets.REGISTRY_ACCESS_KEY_ID }}"
         access-key-secret: "${{ secrets.REGISTRY_ACCESS_KEY_SECRET }}"
         instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
+
     - name: Build and push image to ACR EE instance
       run: |
         docker build -t $ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$IMAGE:test .
