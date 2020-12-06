@@ -19,9 +19,8 @@
 
 name: Build and Deploy to ACK
 
-on:
-  release:
-    types: [created]
+on: [push]
+
 
 env:
 #   IMAGE_TAG: ${{ github.sha }}
