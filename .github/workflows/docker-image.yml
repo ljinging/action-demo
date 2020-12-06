@@ -24,22 +24,22 @@ on:
     types: [created]
 
 env:
-  IMAGE_TAG: ${{ github.sha }}
-  ACR_REGISTRY: registry.cn-hangzhou.aliyuncs.com
-  ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
-  ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
-  ACR_EE_NAMESPACE: abc
+#   IMAGE_TAG: ${{ github.sha }}
+#   ACR_REGISTRY: registry.cn-hangzhou.aliyuncs.com
+#   ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
+#   ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
+#   ACR_EE_NAMESPACE: abc
 
-  DEPLOYMENT_NAME: ask-test # TODO: update to deployment name
-  REGISTRY_VPC: registry-vpc.cn-hangzhou.aliyuncs.com
+#   DEPLOYMENT_NAME: ask-test # TODO: update to deployment name
+#   REGISTRY_VPC: registry-vpc.cn-hangzhou.aliyuncs.com
 
   REGION_ID: cn-hangzhou
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
-  NAMESPACE: demo
-  IMAGE: test
+  NAMESPACE: ljing123
+  IMAGE: repo
   TAG: ${{ github.sha }}
   CLUSTER_ID: cf0109eb4648c407dade22da5367d53a6
-
+  DEPLOYMENT_NAME: nginx-deployment
 jobs:
   build:
     runs-on: ubuntu-latest
