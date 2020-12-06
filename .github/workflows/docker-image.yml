@@ -1,7 +1,8 @@
-# This workflow will build and push a node.js application to an Azure Web App when a release is created.
+# This workflow will build and push a new container image to Alibaba Cloud Container Reigstry (ACR),
+# and then will deploy it to Alibaba Cloud Container Service for Kubernetes (ACK), when a release is created.
 #
-# This workflow assumes you have already created the target Azure App Service web app.
-# For instructions see https://docs.microsoft.com/azure/app-service/app-service-plan-manage#create-an-app-service-plan
+# This workflow assumes you have already created the target ACK app.
+# For instructions see 
 #
 # To configure this workflow:
 #
@@ -15,6 +16,19 @@
 #
 # For more information on GitHub Actions for Azure, refer to https://github.com/Azure/Actions
 # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
+
+
+# This workflow will build a docker container, publish it to Google Container Registry, and deploy it to GKE when a release is created
+#
+# To configure this workflow:
+#
+# 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
+#
+# 2. Set up secrets in your workspace: GKE_PROJECT with the name of the project and GKE_SA_KEY with the Base64 encoded JSON service account key (https://github.com/GoogleCloudPlatform/github-actions/tree/docs/service-account-key/setup-gcloud#inputs).
+#
+# 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, and DEPLOYMENT_NAME environment variables (below).
+#
+# For more support on how to run the workflow, please visit https://github.com/GoogleCloudPlatform/github-actions/tree/master/example-workflows/gke
 
 name: Docker Image CI
 
@@ -36,6 +50,7 @@ jobs:
       ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
       ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
       ACR_EE_NAMESPACE: abc
+
       IMAGE: repo
       REGION_ID: cn-hangzhou
       ACK_INSTANCE_ID: cfd2e6218cf2b494f83e7cd0b21b1cba5
