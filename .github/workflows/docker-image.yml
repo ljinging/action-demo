@@ -32,6 +32,7 @@ env:
   DEPLOYMENT_NAME: nginx-deployment
 
   ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
+  ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
   ACR_EE_NAMESPACE: abc
   ACR_EE_IMAGE: abc
   ACR_EE_TAG: ${{ github.sha }}
