@@ -28,8 +28,8 @@ env:
   NAMESPACE: ljing123
   IMAGE: repo
   TAG: ${{ github.sha }}
-  CLUSTER_ID: cd1f35a1a9fc44560830093af18c5d421
-  DEPLOYMENT_NAME: nginx-deployment
+  ACK_CLUSTER_ID: cd1f35a1a9fc44560830093af18c5d421
+  ACK_DEPLOYMENT_NAME: nginx-deployment
 
   ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
   ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
@@ -96,25 +96,24 @@ jobs:
         repository: "${{ env.ACR_EE_NAMESPACE}}/${{ env.ACR_EE_IMAGE }}"
         tag: "${{ env.ACR_EE_TAG }}"
 
-
+    # 3.1 Set ACK context         
     - name: Set K8s context
       uses: aliyun/ack-set-context@v1
       with:
         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
-        cluster-id: "${{ env.CLUSTER_ID }}"
+        cluster-id: "${{ env.ACK_CLUSTER_ID }}"
 
-# Set up kustomize
+    # 3.2 Deploy the image to the ACK cluster
     - name: Set up Kustomize
       run: |-
         curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash /dev/stdin 3.8.6
 
-# Deploy the Docker image to the Alibaba Cloud Kubernetes cluster
     - name: Deploy
       run: |-
         ./kustomize edit set image REGISTRY/NAMESPACE/IMAGE:TAG=$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG
         ./kustomize build . | kubectl apply -f -
-        kubectl rollout status deployment/$DEPLOYMENT_NAME
+        kubectl rollout status deployment/$ACK_DEPLOYMENT_NAME
         kubectl get services -o wide
         
 #     - name: List pod
