@@ -93,8 +93,8 @@ jobs:
         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
         instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
-        repository: "${{ env.ACR_EE_NAMESPACE}}/${{ env.IMAGE }}"
-        tag: "${{ env.TAG }}"
+        repository: "${{ env.ACR_EE_NAMESPACE}}/${{ env.ACR_EE_IMAGE }}"
+        tag: "${{ env.ACR_EE_TAG }}"
 
 
     - name: Set K8s context
