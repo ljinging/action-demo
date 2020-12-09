@@ -37,7 +37,7 @@ jobs:
     
     steps:
     - name: Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
     # 1. Login, buid and push to ACR   
     - name: Login to ACR with the AccessKey pair
