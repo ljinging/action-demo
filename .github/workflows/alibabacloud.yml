@@ -11,7 +11,7 @@
 #    You can use ACK Pro cluster for more security and better performance.
 #    For instructions see https://www.alibabacloud.com/help/doc-detail/95108.htm
 #
-# 3. Add the your AccessKey pair as secrets in the GitHub repository.
+# 3. Add your AccessKey pair as secrets in the GitHub repository.
 #    For instructions on setting up secrets see: https://developer.github.com/actions/managing-workflows/storing-secrets/
 #
 # 4. Change the environment variables below.
@@ -37,6 +37,7 @@ env:
   ACR_EE_NAMESPACE: namespace
   ACR_EE_IMAGE: repo
   ACR_EE_TAG: ${{ github.sha }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -69,7 +70,7 @@ jobs:
         repository: "${{ env.NAMESPACE }}/${{ env.IMAGE }}"
         tag: "${{ env.TAG }}"
 
-    # 2.1 Login to ACR EE          
+    # 2.1 (Optional) Login to ACR EE          
     - uses: actions/checkout@v2
     - name: Login to ACR EE with the AccessKey pair
       uses: aliyun/acr-login@v1
@@ -80,13 +81,13 @@ jobs:
         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
         instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
 
-    # 2.2 Build and push image ACR EE          
+    # 2.2 (Optional) Build and push image ACR EE          
     - name: Build and push image to ACR EE  
       run: |
         docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG" .
         docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG"
 
-    # 2.3 Scan image in ACR EE          
+    # 2.3 (Optional) Scan image in ACR EE          
     - name: Scan image in ACR EE
       uses: aliyun/acr-scan@v1
       with:
@@ -112,7 +113,7 @@ jobs:
 
     - name: Deploy
       run: |-
-        ./kustomize edit set image REGISTRY/NAMESPACE/IMAGE:TAG=$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG
+        ./kustomize edit set image REGISTRY/NAMESPACE/IMAGE:TAG=$REGISTRY/$NAMESPACE/$IMAGE:$TAG
         ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$ACK_DEPLOYMENT_NAME
         kubectl get services -o wide
