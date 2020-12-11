@@ -11,10 +11,10 @@
 #    You can use ACK Pro cluster for more security and better performance.
 #    For instructions see https://www.alibabacloud.com/help/doc-detail/95108.htm
 #
-# 3. Add your AccessKey pair as secrets in the GitHub repository.
+# 3. Store your AccessKey pair in GitHub Actions secrets named `ACCESS_KEY_ID` and `ACCESS_KEY_SECRET`.
 #    For instructions on setting up secrets see: https://developer.github.com/actions/managing-workflows/storing-secrets/
 #
-# 4. Change the environment variables below.
+# 4. Change the values for the REGION_ID, REGISTRY, NAMESPACE, IMAGE, ACK_CLUSTER_ID, and ACK_DEPLOYMENT_NAME. 
 #
 
 name: Build and Deploy to ACK
@@ -23,6 +23,7 @@ on:
   release:
     types: [created]
 
+# Environment variables available to all jobs and steps in this workflow.
 env:
   REGION_ID: cn-hangzhou
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
