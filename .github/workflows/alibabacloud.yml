@@ -21,7 +21,8 @@ name: Build and Deploy to ACK
 
 on:
   push:
-    branches: [ main ]
+    branches:
+    - master
 
 # Environment variables available to all jobs and steps in this workflow.
 env:
