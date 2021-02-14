@@ -16,6 +16,7 @@
 #
 # 4. Change the values for the REGION_ID, REGISTRY, NAMESPACE, IMAGE, ACK_CLUSTER_ID, and ACK_DEPLOYMENT_NAME. 
 #
+#
 
 name: Build and Deploy to ACK
 
@@ -70,7 +71,7 @@ jobs:
         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
         repository: "${{ env.NAMESPACE }}/${{ env.IMAGE }}"
-        tag: "${{ env.TAG }}"
+        tag: "${{ env.TAG }}" 
 
     # 2.1 (Optional) Login to ACR EE          
     - uses: actions/checkout@v2
