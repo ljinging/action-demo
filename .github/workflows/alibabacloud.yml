@@ -49,29 +49,29 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     
-    # 1.1 Login to ACR   
-    - name: Login to ACR with the AccessKey pair
-      uses: aliyun/acr-login@v1
-      with:
-        region-id: "${{ env.REGION_ID }}"
-        access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-        access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
+#     # 1.1 Login to ACR   
+#     - name: Login to ACR with the AccessKey pair
+#       uses: aliyun/acr-login@v1
+#       with:
+#         region-id: "${{ env.REGION_ID }}"
+#         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+#         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
 
-    # 1.2 Buid and push image to ACR   
-    - name: Build and push image to ACR  
-      run: |
-        docker build --tag "$REGISTRY/$NAMESPACE/$IMAGE:$TAG" .  
-        docker push "$REGISTRY/$NAMESPACE/$IMAGE:$TAG"   
+#     # 1.2 Buid and push image to ACR   
+#     - name: Build and push image to ACR  
+#       run: |
+#         docker build --tag "$REGISTRY/$NAMESPACE/$IMAGE:$TAG" .  
+#         docker push "$REGISTRY/$NAMESPACE/$IMAGE:$TAG"   
  
-    # 1.3 Scan image in ACR   
-    - name: Scan image in ACR
-      uses: aliyun/acr-scan@v1
-      with:
-        region-id: "${{ env.REGION_ID }}"
-        access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-        access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
-        repository: "${{ env.NAMESPACE }}/${{ env.IMAGE }}"
-        tag: "${{ env.TAG }}" 
+#     # 1.3 Scan image in ACR   
+#     - name: Scan image in ACR
+#       uses: aliyun/acr-scan@v1
+#       with:
+#         region-id: "${{ env.REGION_ID }}"
+#         access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+#         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
+#         repository: "${{ env.NAMESPACE }}/${{ env.IMAGE }}"
+#         tag: "${{ env.TAG }}" 
 
     # 2.1 (Optional) Login to ACR EE          
     - uses: actions/checkout@v2
