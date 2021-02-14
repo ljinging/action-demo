@@ -27,7 +27,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow.
 env:
-  REGION_ID: cn-hangzhou
+  REGION_ID: cn-hongkong
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
   NAMESPACE: ljingnamespace
   IMAGE: repo
