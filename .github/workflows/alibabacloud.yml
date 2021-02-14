@@ -35,8 +35,8 @@ env:
   ACK_CLUSTER_ID: c4e271d66ee03437bb43ac341c4c8737d
   ACK_DEPLOYMENT_NAME: nginx-deployment
 
-  ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
-  ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
+  ACR_EE_REGISTRY: hongkong-registry.cn-hongkong.cr.aliyuncs.com
+  ACR_EE_INSTANCE_ID: cri-pvoephmpsfxohomp
   ACR_EE_NAMESPACE: namespace
   ACR_EE_IMAGE: repo
   ACR_EE_TAG: ${{ github.sha }}
@@ -87,7 +87,6 @@ jobs:
     # 2.2 (Optional) Build and push image ACR EE          
     - name: Build and push image to ACR EE  
       run: |
-        docker login -u jing.ljljlj -p Hello0616  www-registry.cn-hangzhou.cr.aliyuncs.com
         docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG" .
         docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG"
     # 2.3 (Optional) Scan image in ACR EE          
