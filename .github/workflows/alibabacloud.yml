@@ -20,8 +20,8 @@
 name: Build and Deploy to ACK
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ main ]
 
 # Environment variables available to all jobs and steps in this workflow.
 env:
