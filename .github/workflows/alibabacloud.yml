@@ -28,7 +28,7 @@ on:
 env:
   REGION_ID: cn-hangzhou
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
-  NAMESPACE: namespace
+  NAMESPACE: ljingnamespace
   IMAGE: repo
   TAG: ${{ github.sha }}
   ACK_CLUSTER_ID: c4e271d66ee03437bb43ac341c4c8737d
