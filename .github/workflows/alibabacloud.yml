@@ -30,11 +30,11 @@ env:
   NAMESPACE: namespace
   IMAGE: repo
   TAG: ${{ github.sha }}
-  ACK_CLUSTER_ID: clusterID
+  ACK_CLUSTER_ID: c4e271d66ee03437bb43ac341c4c8737d
   ACK_DEPLOYMENT_NAME: nginx-deployment
 
-  ACR_EE_REGISTRY: myregistry.cn-hangzhou.cr.aliyuncs.com
-  ACR_EE_INSTANCE_ID: instanceID
+  ACR_EE_REGISTRY: www-registry.cn-hangzhou.cr.aliyuncs.com
+  ACR_EE_INSTANCE_ID: cri-skecg851lg5r8brg
   ACR_EE_NAMESPACE: namespace
   ACR_EE_IMAGE: repo
   ACR_EE_TAG: ${{ github.sha }}
