@@ -32,7 +32,7 @@ env:
   NAMESPACE: ljingnamespace
   IMAGE: repo
   TAG: ${{ github.sha }}
-  ACK_CLUSTER_ID: c4e271d66ee03437bb43ac341c4c8737d
+  ACK_CLUSTER_ID: cb310f931cd6d478cb05063e9f5fbd1fe
   ACK_DEPLOYMENT_NAME: nginx-deployment
 
   ACR_EE_REGISTRY: hongkong-registry.cn-hongkong.cr.aliyuncs.com
