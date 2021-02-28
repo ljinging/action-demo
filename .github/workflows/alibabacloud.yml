@@ -15,8 +15,7 @@
 #    For instructions on setting up secrets see: https://developer.github.com/actions/managing-workflows/storing-secrets/
 #
 # 4. Change the values for the REGION_ID, REGISTRY, NAMESPACE, IMAGE, ACK_CLUSTER_ID, and ACK_DEPLOYMENT_NAME. 
-#
-#
+
 
 name: Build and Deploy to ACK
 
