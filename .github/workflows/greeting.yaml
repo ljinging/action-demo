@@ -1,0 +1,14 @@
+name: Greeting from Alibaba Cloud
+on: push
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: greeting
+      run: |
+        echo 'Welcome to Alibaba Cloud!'
