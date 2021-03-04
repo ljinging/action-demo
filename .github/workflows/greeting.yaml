@@ -9,6 +9,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    - name: greeting
+    - name: Greeting
       run: |
         echo 'Welcome to Alibaba Cloud!'
